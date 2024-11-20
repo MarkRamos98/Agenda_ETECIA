@@ -34,13 +34,13 @@ public class Funcoes_DAO {
         Model.Conecta_DB.carregaDriver();
        
         try { 
-        Connection con = null;
+            Connection con = null;
             
         try {
-        con = (Connection) DriverManager.getConnection(url, username, password);
+            con = (Connection) DriverManager.getConnection(url, username, password);
         } catch (SQLException ex) {
 
-    Logger.getLogger(Inicio_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Inicio_GUI.class.getName()).log(Level.SEVERE, null, ex);
 
             
                    }
@@ -54,7 +54,7 @@ public class Funcoes_DAO {
                 PreparedStatement inserir = (PreparedStatement) con.prepareStatement(sql);
                 inserir.execute(); // Executando a inserção
 
-            JOptionPane.showMessageDialog(null,"\nInserção realizada com sucesso!!!\n","",-1);
+                JOptionPane.showMessageDialog(null,"\nInserção realizada com sucesso!!!\n","",-1);
                 nome_txt.setText("");
                 email_txt.setText("");
                 tel_txt.setText("");
