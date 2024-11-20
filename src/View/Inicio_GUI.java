@@ -29,22 +29,62 @@ public class Inicio_GUI extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        tel_txt = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        nome_txt = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        email_txt = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        Sair_btn = new javax.swing.JButton();
+        Cadastrar_btn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 272, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(null);
+
+        jLabel1.setText("Tel:");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(10, 140, 52, 27);
+        jPanel1.add(tel_txt);
+        tel_txt.setBounds(50, 140, 340, 30);
+
+        jLabel2.setText("Email:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(10, 90, 40, 30);
+        jPanel1.add(nome_txt);
+        nome_txt.setBounds(50, 40, 340, 30);
+
+        jLabel3.setText("Nome:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(10, 40, 52, 27);
+        jPanel1.add(email_txt);
+        email_txt.setBounds(50, 90, 340, 30);
+
+        jLabel4.setText("AGENDA");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(170, 0, 80, 30);
+
+        Sair_btn.setText("Sair");
+        Sair_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Sair_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Sair_btn);
+        Sair_btn.setBounds(230, 210, 100, 40);
+
+        Cadastrar_btn.setText("Cadastrar");
+        Cadastrar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cadastrar_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Cadastrar_btn);
+        Cadastrar_btn.setBounds(90, 210, 100, 40);
 
         jTabbedPane1.addTab("Cadastrar", jPanel1);
 
@@ -89,6 +129,14 @@ public class Inicio_GUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Sair_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sair_btnActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_Sair_btnActionPerformed
+
+    private void Cadastrar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cadastrar_btnActionPerformed
+        Controller.Funcoes_DAO.cadastrar();
+    }//GEN-LAST:event_Cadastrar_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -125,9 +173,18 @@ public class Inicio_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cadastrar_btn;
+    private javax.swing.JButton Sair_btn;
+    public static javax.swing.JTextField email_txt;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    public static javax.swing.JTextField nome_txt;
+    public static javax.swing.JTextField tel_txt;
     // End of variables declaration//GEN-END:variables
 }
