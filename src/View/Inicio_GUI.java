@@ -26,7 +26,11 @@ public class Inicio_GUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("aprender?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        clienteQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM Cliente c");
+        clienteList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : clienteQuery.getResultList();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -39,6 +43,17 @@ public class Inicio_GUI extends javax.swing.JFrame {
         Sair_btn = new javax.swing.JButton();
         Cadastrar_btn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        cod001 = new javax.swing.JLabel();
+        cod_txt = new javax.swing.JTextField();
+        nome2_txt = new javax.swing.JTextField();
+        nome001 = new javax.swing.JLabel();
+        email2_txt = new javax.swing.JTextField();
+        eamil001 = new javax.swing.JLabel();
+        tel2_txt = new javax.swing.JTextField();
+        tel001 = new javax.swing.JLabel();
+        consultar_btn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,16 +103,84 @@ public class Inicio_GUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Cadastrar", jPanel1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 272, Short.MAX_VALUE)
-        );
+        jPanel2.setLayout(null);
+
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, clienteList, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cliCod}"));
+        columnBinding.setColumnName("Codigo");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cliNome}"));
+        columnBinding.setColumnName("Nome");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cliEmail}"));
+        columnBinding.setColumnName("Email");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cliTel}"));
+        columnBinding.setColumnName("Telelefone");
+        columnBinding.setColumnClass(Long.class);
+        bindingGroup.addBinding(jTableBinding);
+        jTableBinding.bind();
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 0, 395, 70);
+
+        cod001.setText("Codigo:");
+        jPanel2.add(cod001);
+        cod001.setBounds(10, 80, 60, 20);
+
+        cod_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cod_txtActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cod_txt);
+        cod_txt.setBounds(50, 80, 90, 20);
+
+        nome2_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nome2_txtActionPerformed(evt);
+            }
+        });
+        jPanel2.add(nome2_txt);
+        nome2_txt.setBounds(50, 110, 200, 30);
+
+        nome001.setText("Nome:");
+        jPanel2.add(nome001);
+        nome001.setBounds(10, 110, 60, 30);
+
+        email2_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                email2_txtActionPerformed(evt);
+            }
+        });
+        jPanel2.add(email2_txt);
+        email2_txt.setBounds(50, 150, 200, 30);
+
+        eamil001.setText("Email:");
+        jPanel2.add(eamil001);
+        eamil001.setBounds(10, 150, 60, 30);
+
+        tel2_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tel2_txtActionPerformed(evt);
+            }
+        });
+        jPanel2.add(tel2_txt);
+        tel2_txt.setBounds(50, 190, 160, 30);
+
+        tel001.setText("Telefone:");
+        jPanel2.add(tel001);
+        tel001.setBounds(0, 190, 60, 30);
+
+        consultar_btn.setText("Consultar");
+        consultar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultar_btnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(consultar_btn);
+        consultar_btn.setBounds(50, 230, 90, 30);
 
         jTabbedPane1.addTab("Consultar/Alterar", jPanel2);
 
@@ -125,6 +208,8 @@ public class Inicio_GUI extends javax.swing.JFrame {
             .addComponent(jTabbedPane1)
         );
 
+        bindingGroup.bind();
+
         setSize(new java.awt.Dimension(400, 300));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -136,6 +221,26 @@ public class Inicio_GUI extends javax.swing.JFrame {
     private void Cadastrar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cadastrar_btnActionPerformed
         Controller.Funcoes_DAO.cadastrar();
     }//GEN-LAST:event_Cadastrar_btnActionPerformed
+
+    private void cod_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cod_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cod_txtActionPerformed
+
+    private void nome2_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nome2_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nome2_txtActionPerformed
+
+    private void email2_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email2_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_email2_txtActionPerformed
+
+    private void tel2_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tel2_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tel2_txtActionPerformed
+
+    private void consultar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultar_btnActionPerformed
+        Controller.Funcoes_DAO.consultar();
+    }//GEN-LAST:event_consultar_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,7 +280,15 @@ public class Inicio_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cadastrar_btn;
     private javax.swing.JButton Sair_btn;
+    private java.util.List<View.Cliente> clienteList;
+    private javax.persistence.Query clienteQuery;
+    private javax.swing.JLabel cod001;
+    public static javax.swing.JTextField cod_txt;
+    private javax.swing.JButton consultar_btn;
+    private javax.swing.JLabel eamil001;
+    public static javax.swing.JTextField email2_txt;
     public static javax.swing.JTextField email_txt;
+    private javax.persistence.EntityManager entityManager;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -183,8 +296,15 @@ public class Inicio_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel nome001;
+    public static javax.swing.JTextField nome2_txt;
     public static javax.swing.JTextField nome_txt;
+    private javax.swing.JLabel tel001;
+    public static javax.swing.JTextField tel2_txt;
     public static javax.swing.JTextField tel_txt;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

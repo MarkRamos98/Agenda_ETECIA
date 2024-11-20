@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         new Inicio_GUI().setVisible(true);
-        //Model.Conecta_DB.carregaDriver();
+        
     }
     
 }
