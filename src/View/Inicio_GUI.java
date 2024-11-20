@@ -50,10 +50,11 @@ public class Inicio_GUI extends javax.swing.JFrame {
         nome2_txt = new javax.swing.JTextField();
         nome001 = new javax.swing.JLabel();
         email2_txt = new javax.swing.JTextField();
-        eamil001 = new javax.swing.JLabel();
+        email001 = new javax.swing.JLabel();
         tel2_txt = new javax.swing.JTextField();
         tel001 = new javax.swing.JLabel();
         consultar_btn = new javax.swing.JButton();
+        alterar_btn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -157,9 +158,9 @@ public class Inicio_GUI extends javax.swing.JFrame {
         jPanel2.add(email2_txt);
         email2_txt.setBounds(50, 150, 200, 30);
 
-        eamil001.setText("Email:");
-        jPanel2.add(eamil001);
-        eamil001.setBounds(10, 150, 60, 30);
+        email001.setText("Email:");
+        jPanel2.add(email001);
+        email001.setBounds(10, 150, 60, 30);
 
         tel2_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +181,16 @@ public class Inicio_GUI extends javax.swing.JFrame {
             }
         });
         jPanel2.add(consultar_btn);
-        consultar_btn.setBounds(50, 230, 90, 30);
+        consultar_btn.setBounds(300, 80, 90, 30);
+
+        alterar_btn.setText("Alterar");
+        alterar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterar_btnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(alterar_btn);
+        alterar_btn.setBounds(300, 120, 90, 30);
 
         jTabbedPane1.addTab("Consultar/Alterar", jPanel2);
 
@@ -242,6 +252,10 @@ public class Inicio_GUI extends javax.swing.JFrame {
         Controller.Funcoes_DAO.consultar();
     }//GEN-LAST:event_consultar_btnActionPerformed
 
+    private void alterar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterar_btnActionPerformed
+       Controller.Funcoes_DAO.alterar();
+    }//GEN-LAST:event_alterar_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -280,12 +294,13 @@ public class Inicio_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cadastrar_btn;
     private javax.swing.JButton Sair_btn;
+    private javax.swing.JButton alterar_btn;
     private java.util.List<View.Cliente> clienteList;
     private javax.persistence.Query clienteQuery;
     private javax.swing.JLabel cod001;
     public static javax.swing.JTextField cod_txt;
     private javax.swing.JButton consultar_btn;
-    private javax.swing.JLabel eamil001;
+    private javax.swing.JLabel email001;
     public static javax.swing.JTextField email2_txt;
     public static javax.swing.JTextField email_txt;
     private javax.persistence.EntityManager entityManager;
