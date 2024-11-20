@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Laboratorio-Info
@@ -56,6 +58,9 @@ public class Inicio_GUI extends javax.swing.JFrame {
         consultar_btn = new javax.swing.JButton();
         alterar_btn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        cod2_txt = new javax.swing.JTextField();
+        excluir_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -194,16 +199,23 @@ public class Inicio_GUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Consultar/Alterar", jPanel2);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 272, Short.MAX_VALUE)
-        );
+        jPanel3.setLayout(null);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setText("CODIGO");
+        jPanel3.add(jLabel5);
+        jLabel5.setBounds(150, 20, 80, 30);
+        jPanel3.add(cod2_txt);
+        cod2_txt.setBounds(70, 60, 220, 30);
+
+        excluir_btn.setText("Excluir");
+        excluir_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluir_btnActionPerformed(evt);
+            }
+        });
+        jPanel3.add(excluir_btn);
+        excluir_btn.setBounds(130, 100, 100, 40);
 
         jTabbedPane1.addTab("Excluir", jPanel3);
 
@@ -256,6 +268,14 @@ public class Inicio_GUI extends javax.swing.JFrame {
        Controller.Funcoes_DAO.alterar();
     }//GEN-LAST:event_alterar_btnActionPerformed
 
+    private void excluir_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluir_btnActionPerformed
+        String x = JOptionPane.showInputDialog(null, "Deseja Apagar Registro? \n 1 - Sim \n 2 - Não" );
+        int op = Integer.parseInt(x);
+        if(op == 1){
+            JOptionPane.showMessageDialog(null,"Exclusão Cancelada");
+        }
+    }//GEN-LAST:event_excluir_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -298,16 +318,19 @@ public class Inicio_GUI extends javax.swing.JFrame {
     private java.util.List<View.Cliente> clienteList;
     private javax.persistence.Query clienteQuery;
     private javax.swing.JLabel cod001;
+    public static javax.swing.JTextField cod2_txt;
     public static javax.swing.JTextField cod_txt;
     private javax.swing.JButton consultar_btn;
     private javax.swing.JLabel email001;
     public static javax.swing.JTextField email2_txt;
     public static javax.swing.JTextField email_txt;
     private javax.persistence.EntityManager entityManager;
+    private javax.swing.JButton excluir_btn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
