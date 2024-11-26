@@ -441,7 +441,7 @@
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="Atestado_BTN" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButton3" alignment="1" max="32767" attributes="0"/>
+                          <Component id="RelatórioBD_BTN" alignment="1" max="32767" attributes="0"/>
                           <Component id="Ticket_BTN" min="-2" pref="281" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="62" max="32767" attributes="0"/>
@@ -456,7 +456,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Atestado_BTN" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="RelatórioBD_BTN" min="-2" pref="46" max="-2" attributes="0"/>
                       <EmptySpace pref="56" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -475,8 +475,11 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Atestado"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Atestado_BTNActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="Relat&#xf3;rioBD_BTN">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Relat&#xf3;rio BD"/>
               </Properties>

@@ -47,7 +47,7 @@ public class Inicio_GUI extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         Ticket_BTN = new javax.swing.JButton();
         Atestado_BTN = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        RelatórioBD_BTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -214,8 +214,13 @@ public class Inicio_GUI extends javax.swing.JFrame {
         });
 
         Atestado_BTN.setText("Atestado");
+        Atestado_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Atestado_BTNActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Relatório BD");
+        RelatórioBD_BTN.setText("Relatório BD");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -225,7 +230,7 @@ public class Inicio_GUI extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Atestado_BTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RelatórioBD_BTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Ticket_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
@@ -237,7 +242,7 @@ public class Inicio_GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(Atestado_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RelatórioBD_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -301,8 +306,22 @@ public class Inicio_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_excluir_btnActionPerformed
 
     private void Ticket_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ticket_BTNActionPerformed
-        Controller.Ticket_DAO.impressao();
+        
     }//GEN-LAST:event_Ticket_BTNActionPerformed
+
+    private void Atestado_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Atestado_BTNActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            
+            Controller.Press_DAO.imprime();
+            
+        } catch (Exception ex){
+            
+            
+            
+        }
+    }//GEN-LAST:event_Atestado_BTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -342,6 +361,7 @@ public class Inicio_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atestado_BTN;
     private javax.swing.JButton Cadastrar_btn;
+    private javax.swing.JButton RelatórioBD_BTN;
     private javax.swing.JButton Sair_btn;
     private javax.swing.JButton Ticket_BTN;
     private javax.swing.JButton alterar_btn;
@@ -356,7 +376,6 @@ public class Inicio_GUI extends javax.swing.JFrame {
     public static javax.swing.JTextField email_txt;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JButton excluir_btn;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
