@@ -5,9 +5,15 @@
  */
 package Controller;
 
+import java.io.FileOutputStream;
 import java.io.OutputStream;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
+import java.io.File;
 import javax.swing.JOptionPane;
-import javax.swing.text.Document;
 
 /**
  *
